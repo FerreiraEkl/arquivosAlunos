@@ -1,0 +1,28 @@
+<mat-card>Card do material
+
+    <form [formGroup]="formularioDeCadastro" class="p-2">
+        <div class="row">
+
+            <mat-form-field appearance="standard" class="col s12 m6 l4">
+                <mat-label>Nome completo</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="nomeCompleto">
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="col s12 m6 l4">
+                <mat-label>Nome completo</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="nomeCompleto">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="col s12 l4">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <label for="comprovanteResidencial" class="waves-effect waves-light btn">Anexar comprovante</label>
+        <input style="display: none;" type="file" id="comprovanteResidencial"
+            (change)="setcomprovanteResidencial($event)">
+    </form>
+</mat-card>
