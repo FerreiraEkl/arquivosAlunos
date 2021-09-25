@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [],
@@ -19,6 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   ],
   exports: [
     MatIconModule,
+    MatToolbarModule,
     MatCommonModule,
     MatNativeDateModule,
     MatDatepickerModule,
@@ -26,7 +30,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSelectModule,
     MatSlideToggleModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatBadgeModule,
+    TextFieldModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }

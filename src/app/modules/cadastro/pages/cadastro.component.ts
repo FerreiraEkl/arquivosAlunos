@@ -20,15 +20,21 @@ export class CadastroComponent implements OnInit {
   ) {
     this.formularioDeCadastro = this.formbuilder.group({
       nomeCompleto: ['', [Validators.required, Validators.minLength(3)]],
-      comprovanteResidencial: [null, [Validators.required]]
+      dataNascimento: [null, Validators.required],
+      idade: [null, Validators.required],
+      orientacaoSexual: [null, Validators.required],
+      nacionalidade: [null, Validators.required],
+      naturalidade: [null, Validators.required],
+      endereco: [null, [Validators.required]],
+      phone1: [null, [Validators.required]],
+      phone2: [null],
+      responsavel: [null],
+      comprovanteResidencial: [null, [Validators.required]],
+      declaracaoDeficiencia: [null]
     })
   }
 
   ngOnInit(): void {
-    this.sub = this.formularioDeCadastro.valueChanges.subscribe(valoresNovos => {
-      this.cadastroService.save(valoresNovos)
-    })
-
     let dadosAntigos = this.cadastroService.read(1)
     if (dadosAntigos)
       this.formularioDeCadastro.patchValue(dadosAntigos)
@@ -40,13 +46,31 @@ export class CadastroComponent implements OnInit {
 
   public setcomprovanteResidencial(event: any) {
     let arquivo = event.target.files?.[0]
-    this.formularioDeCadastro.patchValue({
-      comprovanteResidencial: arquivo
-    });
+    this.formularioDeCadastro.patchValue({ comprovanteResidencial: arquivo });
     this.formularioDeCadastro.markAllAsTouched();
   }
 
-  save() {
+  public setdeclaracaoDeficiencia(event: any) {
+    let arquivo = event.target.files?.[0]
+    this.formularioDeCadastro.patchValue({ declaracaoDeficiencia: arquivo });
+    this.formularioDeCadastro.markAllAsTouched();
+  }
 
+  public getTemComprovante(): boolean {
+    if (this.formularioDeCadastro.get('comprovanteResidencial')?.value != null)
+      return true
+    else
+      return false
+  }
+
+  public getTemDeclaracao(): boolean {
+    if (this.formularioDeCadastro.get('declaracaoDeficiencia')?.value != null)
+      return true
+    else
+      return false
+  }
+
+  save() {
+    this.cadastroService.save(this.formularioDeCadastro.getRawValue())
   }
 }
