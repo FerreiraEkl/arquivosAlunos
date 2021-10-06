@@ -1,0 +1,103 @@
+<app-navbar></app-navbar>
+
+<div class="row mt-5">
+    <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+        <form class="p-2" [formGroup]="inscricaoForm">
+            <div class="row">
+                <h1>
+                    XXII Caminhada dos Entas 2021
+                </h1>
+                <h3>
+                    Realizando inscrição
+                </h3>
+                <p>
+                    Para realizar sua inscrição informe seu cpf, selecione o tamanho da camisa, marque a opção aceito o
+                    regulamento e clique em Inscrever.
+                </p>
+                <p> Para participar deste evento você deve ter 40 anos ou mais até a data de 18 de Novembro de 2021.
+                </p>
+            </div>
+            <div class="row mb-0">
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>Cpf</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <input matInput placeholder="Digite o seu Cpf" formControlName="cpf" [mask]="mask">
+                        <mat-error>Cpf é <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>Camiseta</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-select formControlName="camiseta">
+                            <mat-option value="p">P</mat-option>
+                            <mat-option value="m">M</mat-option>
+                            <mat-option value="g">G</mat-option>
+                            <mat-option value="gg">GG</mat-option>
+                        </mat-select>
+                        <mat-error>Camiseta <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>Unidade de saúde</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-select formControlName="unidadeSaude">
+                            <mat-option disabled [value]="null">-- Selecione a unidade de saúde --</mat-option>
+                            <mat-option value="1">ESF Boa Vista</mat-option>
+                            <mat-option value="2">ESF Jardim das Colinas</mat-option>
+                            <mat-option value="3">ESF Nossa Senhora de Fátima</mat-option>
+                            <mat-option value="4">ESF Piedade</mat-option>
+                            <mat-option value="5">ESF Santa Luzia</mat-option>
+                            <mat-option value="6">ESF Zona Rural I</mat-option>
+                            <mat-option value="7">ESF Zona Rural II</mat-option>
+                            <mat-option value="8">PSF Avenida</mat-option>
+                            <mat-option value="9">PSF Cruzeiro</mat-option>
+                            <mat-option value="10">PSF Medicina</mat-option>
+                            <mat-option value="11">PSF Santo Antônio</mat-option>
+                            <mat-option value="12">PSF Vila Isabel</mat-option>
+                            <mat-option value="13">UBS Caic</mat-option>
+                            <mat-option value="14">UBS Cruzeiro</mat-option>
+                            <mat-option value="15">UBS Irmã Zenaide</mat-option>
+                            <mat-option value="16">UBS Nossa Senhora de Lourdes</mat-option>
+                            <mat-option value="17">UBS Rebourgeon</mat-option>
+                            <mat-option value="18">UBS Santa Rita de Cássia</mat-option>
+                            <mat-option value="19">UBS Santa Rosa</mat-option>
+                            <mat-option value="20">UBS Santos Dumont</mat-option>
+                            <mat-option value="21">UBS São Vicent</mat-option>
+                            <mat-option value="22">UBS Varginha</mat-option>
+                            <mat-option value="23">UBS Vila Rubens</mat-option>
+                        </mat-select>
+                        <mat-error>Unidade de saúde <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3><b>Outra instituição</b></h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <textarea matInput cdkTextareaAutosize formControlName="outrainstituicao"></textarea>
+                    </mat-form-field>
+                </div>
+                <p class="col s12">
+                    <label class="right">
+                        <input formControlName="termos" type="checkbox" />
+                        <span>Aceito o regulamento</span>
+                    </label>
+                </p>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button mat-flat-button color="primary" class="right" type="submit">
+                        <mat-icon matSuffix>send</mat-icon>
+                        Inscrever
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

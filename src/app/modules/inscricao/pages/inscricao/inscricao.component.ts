@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./inscricao.component.css']
 })
 export class InscricaoComponent implements OnInit {
-  public mask: string = '00.000.0000-00';
+  public mask: string = '000.000.000-00';
   public inscricaoForm: FormGroup;
 
   constructor(private formbuilder: FormBuilder) {
@@ -15,7 +15,7 @@ export class InscricaoComponent implements OnInit {
       cpf: ['', [Validators.required]],
       camiseta: ['p', [Validators.required]],
       unidadeSaude: [null],
-      outraInstituicao: [],
+      outrainstituicao: [],
       termos: [false]
     })
   }

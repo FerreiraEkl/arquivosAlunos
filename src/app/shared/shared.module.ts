@@ -17,10 +17,31 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavbarComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCommonModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatTableModule,
+    MatCardModule,
+    MatBadgeModule,
+    TextFieldModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatButtonToggleModule,
+    RouterModule
   ],
   exports: [
     MatIconModule,
@@ -37,7 +58,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     TextFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    NavbarComponent
   ]
 })
 export class SharedModule { }

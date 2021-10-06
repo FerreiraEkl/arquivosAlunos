@@ -1,0 +1,218 @@
+<app-navbar></app-navbar>
+<div class="row mt-5">
+    <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+        <form class="p-2" [formGroup]="cadastrarForm">
+            <div class="row">
+                <div class="col s12 l6 pt-3">
+                    <h1>
+                        Dados do Atleta
+                    </h1>
+                </div>
+            </div>
+            <div>
+                <div class="row mb-0">
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <h3>Cpf:</h3>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <input matInput placeholder="Digite seu Cpf" formControlName="cpf" [mask]="mask">
+                            <mat-error>Cpf é <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Nome:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Nome</mat-label>
+                            <input matInput placeholder="Digite sua Nome" formControlName="nome">
+                            <mat-error>Nome é <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <h3>Sexo:</h3>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Sexo</mat-label>
+                            <mat-select formControlName="orientacaosexual">
+                                <mat-option value="masc">Masculino</mat-option>
+                                <mat-option value="fem">Feminino</mat-option>
+                                <mat-option value="neutro">Neutro</mat-option>
+                            </mat-select>
+                            <mat-error>Sexo <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Data de Nascimento:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Data de nascimento</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="datanascimento">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error>Data de nascimento <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Telefone:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Telefone</mat-label>
+                            <input matInput placeholder="Digite um telefone fixo" formControlName="telefone"
+                                [mask]="phoneMask">
+                            <mat-icon matSuffix>phone</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Celular:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Celular</mat-label>
+                            <input matInput placeholder="Digite o número do Celular" formControlName="celular" [mask]="phoneMask">
+                            <mat-icon matSuffix>phone</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>E-mail:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput placeholder="Digite o E-mail" formControlName="email">
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 l6 p-3">
+                        <button (click)="foto.click()" mat-button mat-raised-button matBadge="" class="col s12"
+                            [matBadgeHidden]="!getTemFoto()">
+                            Foto
+                        </button>
+                    </div>
+                    <div class="col s12">
+                        <input class="right" style="display: none;" type="file" #foto (change)="setfoto($event)">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 pt-3">
+                        <h1>
+                            Endereço
+                        </h1>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <h3>Estado:</h3>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Estado</mat-label>
+                            <mat-select formControlName="estado">
+                                <mat-option *ngFor="let estado of estados" [value]="estado.id">{{estado.nome}}</mat-option>
+                            </mat-select>
+                            <mat-error>Estado <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Cidade:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Cidade</mat-label>
+                            <input matInput placeholder="Digite sua cidade" formControlName="cidade">
+                            <mat-error>Cidade é <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <h3>CEP:</h3>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <input matInput placeholder="digite o cep" formControlName="cep">
+                            <mat-error>cep é <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <h3>Tipo de Logradouro:</h3>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Lograudoro</mat-label>
+                            <mat-select formControlName="logradouro">
+                                <mat-option value="Aeroporto">Aeroporto</mat-option>
+                                <mat-option value="Alameda">Alameda</mat-option>
+                                <mat-option value="Apartamento">Apartamento</mat-option>
+                                <mat-option value="Avenida">Avenida</mat-option>
+                                <mat-option value="Beco">Beco</mat-option>
+                                <mat-option value="Bloco">Bloco</mat-option>
+                                <mat-option value="Caminho">Caminho</mat-option>
+                                <mat-option value="Estação">Estação</mat-option>
+                                <mat-option value="Estrada">Estrada</mat-option>
+                                <mat-option value="Fazenda">Fazenda</mat-option>
+                                <mat-option value="Galeria">Galeria</mat-option>
+                                <mat-option value="Ladeira">Ladeira</mat-option>
+                                <mat-option value="Largo">Largo</mat-option>
+                                <mat-option value="Parque">Parque</mat-option>
+                                <mat-option value="Praça">Praça</mat-option>
+                                <mat-option value="Praia">Praia</mat-option>
+                                <mat-option value="Quadra">Quadra</mat-option>
+                                <mat-option value="Quilômetro">Quilômetro</mat-option>
+                                <mat-option value="Quinta">Quinta</mat-option>
+                                <mat-option value="Rodovia">Rodovia</mat-option>
+                                <mat-option value="Rua">Rua</mat-option>
+                                <mat-option value="Travessa">Travessa</mat-option>
+                                <mat-option value="Viaduto">Viaduto</mat-option>
+                                <mat-option value="Vila">Vila</mat-option>
+                            </mat-select>
+                            <mat-error>lograudoro <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Endereço:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Endereço</mat-label>
+                            <input matInput placeholder="Digite seu Endereço" formControlName="endereço">
+                            <mat-error>Endereço é <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Complemento:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Complemento</mat-label>
+                            <input matInput placeholder="digite o complemento" formControlName="complemento">
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <h3>Número:</h3>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <input matInput placeholder="Digite o Número" formControlName="numero">
+                            <mat-error>Número é <strong>obrigatório</strong></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Bairro:</mat-label>
+                        </div>
+                        <mat-form-field appearance="fill" class="col s8 m9">
+                            <mat-label>Bairro</mat-label>
+                            <input matInput placeholder="Digite o Bairro" formControlName="bairro">
+                        </mat-form-field>
+                    </div>
+                    <div class="col s12">
+                        <button mat-flat-button color="primary" class="right" (click)="save()">
+                            <mat-icon matSuffix>save</mat-icon>
+                            Inscrever
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

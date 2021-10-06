@@ -4,24 +4,24 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CadastroService {
+export class CadastrarService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly rotaPadrao = 'api/cadastro';
+  private readonly rotaPadrao = 'api/cadastrar';
 
-  async save(cadastro: any): Promise<any> {
+  async save(cadastrar: any): Promise<any> {
 
-    window.localStorage.setItem('logCaDASTRO', JSON.stringify(cadastro))
+    window.localStorage.setItem('logCaDASTRAR', JSON.stringify(cadastrar))
 
     let fullFormData: FormData = new FormData();
-    for (const key of Object.keys(cadastro)) {
-      const value = cadastro[key];
+    for (const key of Object.keys(cadastrar)) {
+      const value = cadastrar[key];
       fullFormData.append(key, value);
     }
 
     // LOCALHOST
-    window.localStorage.setItem('logCaDASTRO', JSON.stringify(cadastro))
+    window.localStorage.setItem('logCaDASTRAR', JSON.stringify(cadastrar))
 
     // API
     await this.http.post<any>(`${this.rotaPadrao}`, fullFormData).toPromise().then((result: any) => {
@@ -32,9 +32,9 @@ export class CadastroService {
     });
   }
 
-  async read(id: number): Promise<{ nomeCompleto: string; comprovanteResidencial: File; } | null> {
+  async read(id: number): Promise<{ nome: string; foto: File; } | null> {
     // LOCALHOST
-    let dadosAntigos = window.localStorage.getItem('logCaDASTRO')
+    let dadosAntigos = window.localStorage.getItem('logCaDASTRAR')
     if (dadosAntigos)
       return JSON.parse(dadosAntigos)
     return null
