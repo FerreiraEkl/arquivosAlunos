@@ -4,24 +4,24 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CadastrarService {
+export class InscricaoService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly rotaPadrao = 'api/cadastros';
+  private readonly rotaPadrao = 'api/inscricoes';
 
-  async save(formCadastro: any): Promise<any> {
+  async save(formInscricao: any): Promise<any> {
 
-    window.localStorage.setItem('cadastroCache', JSON.stringify(formCadastro))
+    window.localStorage.setItem('registroCache', JSON.stringify(formInscricao))
 
     let fullFormData: FormData = new FormData();
-    for (const key of Object.keys(formCadastro)) {
-      const value = formCadastro[key];
+    for (const key of Object.keys(formInscricao)) {
+      const value = formInscricao[key];
       fullFormData.append(key, value);
     }
 
     // LOCALHOST
-    window.localStorage.setItem('cadastroCache', JSON.stringify(formCadastro))
+    window.localStorage.setItem('registroCache', JSON.stringify(formInscricao))
 
     // API
     /*await this.http.post<any>(`${this.rotaPadrao}`, fullFormData).toPromise().then((result: any) => {
@@ -34,7 +34,7 @@ export class CadastrarService {
 
   async read(id: number): Promise<any> {
     // LOCALHOST
-    let dadosAntigos = window.localStorage.getItem('cadastroCache')
+    let dadosAntigos = window.localStorage.getItem('registroCache')
     if (dadosAntigos)
       return JSON.parse(dadosAntigos)
     return null

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { CadastrarService } from 'src/app/shared/services/cadastrar.service';
 import { EstadosService } from 'src/app/shared/services/estados.service';
 @Component({
@@ -11,10 +10,7 @@ import { EstadosService } from 'src/app/shared/services/estados.service';
 export class CadastrarComponent implements OnInit {
   public mask: string = '000.000.000-00';
   public phoneMask: string = '(00) 0 0000-0000';
-
   public cadastrarForm: FormGroup;
-  private sub: Subscription = new Subscription;
-
   public estados: any[] = []
 
   constructor(
@@ -43,29 +39,32 @@ export class CadastrarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let dadosAntigos = this.cadastrarService.read(1)
-    if (dadosAntigos)
-      this.cadastrarForm.patchValue(dadosAntigos)
-
+    // LER DADOS DE CACHE DO SERVIÇO
+    this.cadastrarService.read(1).then(data => {
+      if (data)
+        this.cadastrarForm.patchValue(data)
+    })
+    // CARREGA ESTADOS DO SERVIÇO
     this.estados = this.estadosService.getEstados()
   }
 
-  ngOndestoy(): void {
-    this.sub.unsubscribe()
-  }
+  // CARREGA ARQUIVO DA FOTO PARA A O CAMPO
   public setfoto(event: any) {
     let arquivo = event.target.files?.[0]
     this.cadastrarForm.patchValue({ foto: arquivo });
     this.cadastrarForm.markAllAsTouched();
   }
+
+  // VERIFICA SE TEM FOTO ANEXADA
   public getTemFoto(): boolean {
     if (this.cadastrarForm.get('foto')?.value != null)
       return true
     else
       return false
   }
-  save() {
-    this.cadastrarService.save(this.cadastrarForm.getRawValue())
 
+  // GRAVA DADOS DE CACHE VIA SERVIÇO
+  public save() {
+    this.cadastrarService.save(this.cadastrarForm.getRawValue())
   }
 }
