@@ -21,15 +21,15 @@ export class InscricaoService {
     }
 
     // LOCALHOST
-    window.localStorage.setItem('registroCache', JSON.stringify(formInscricao))
+    window.localStorage.setItem('registroCache', JSON.stringify(formInscricao));
 
-    // API
-    /*await this.http.post<any>(`${this.rotaPadrao}`, fullFormData).toPromise().then((result: any) => {
+     //API
+    await this.http.post<any>(`${this.rotaPadrao}`, fullFormData).toPromise().then((result: any) => {
       return result
     }).catch((err: any) => {
       console.log(err);
       return null
-    });*/
+    });
   }
 
   async read(id: number): Promise<any> {
@@ -40,10 +40,10 @@ export class InscricaoService {
     return null
 
     // API
-    /*return await this.http.get<any>(`${this.rotaPadrao}/${id}`).toPromise().then(request => {
+    return await this.http.get<any>(`${this.rotaPadrao}/${id}`).toPromise().then(request => {
       return request;
     }).catch(() => {
       return null;
-    });*/
+    });
   }
 }

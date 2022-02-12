@@ -1,12 +1,17 @@
 <mat-toolbar>
-    <mat-toolbar-row style="height: 120px; width: 100%;">
+    <mat-toolbar-row style="height: 120px;">
         <img class="right mr-5" src="/assets/header.png" style="height: 45px; width: auto;">
-        <h1>Secretaria do Esporte e Lazer</h1>
+        <h1>Secretaria municipal de informática</h1>
+        <span class="spacer"></span>
+        <h2 *ngIf="user">
+            {{user.userName}}
+        </h2>
     </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="m-2">
-    <mat-button-toggle [routerLink]="'/'" >Inicial</mat-button-toggle>
-    <mat-button-toggle [routerLink]="'/cadastro'">Cadastar</mat-button-toggle>
-    <mat-button-toggle [routerLink]="'/inscricao'">Fazer minha inscrição</mat-button-toggle>
+    <mat-button-toggle [routerLink]="'/'">Inicial</mat-button-toggle>
+    <mat-button-toggle [routerLink]="'/cadastro'">Cadastrar</mat-button-toggle>
+    <mat-button-toggle [routerLink]="'/inscricao'">Abrir um chamado</mat-button-toggle>
+    <mat-button-toggle *ngFor="let opt of navbarItens" [routerLink]="'opt.url'">{{opt.name}}</mat-button-toggle>
 </mat-button-toggle-group>

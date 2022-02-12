@@ -1,0 +1,56 @@
+
+<div class="row mt-5">
+    <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+        <form class="p-2" [formGroup]="inscricaoForm">
+            <div class="row">
+                <h1>
+                    ABRIR CHAMADO
+                </h1>
+                <h3>
+                  Sonner
+                </h3>
+                <p>
+                    Problemas com cabos de rede,dns,etc.
+                   
+                </p>
+                <p>  Para realizar sua inscrição informe seu cpf,e o local do chamado,faça uma discrição do chamado e depoisa click em Abrir chamado.
+                </p>
+            </div>
+            <div class="row mb-0">
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>Localização do chamado</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-select formControlName="camiseta">
+                            <mat-option value="Interno">Interno</mat-option>
+                            <mat-option value="Externo">Externo</mat-option>
+                            <mat-option value="Semsa">Semsa</mat-option>
+                            <mat-option value="Escola">Escola</mat-option>
+                        </mat-select>
+                        <mat-error>Localização do chamado é <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Descrição:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Descrição</mat-label>
+                        <input matInput placeholder="Digite a descrição do problema" formControlName="descrição">
+                        <mat-error>Descrição é<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+    
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button mat-flat-button color="primary" class="right" type="submit">
+                        <mat-icon matSuffix>send</mat-icon>
+                       Abrir chamado
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

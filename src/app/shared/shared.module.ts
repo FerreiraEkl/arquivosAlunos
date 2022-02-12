@@ -19,6 +19,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { NavbarService } from './services/navbar.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,9 @@ import { RouterModule } from '@angular/router';
     MatCheckboxModule,
     MatButtonToggleModule,
     NavbarComponent
+  ],
+  providers: [
+    NavbarService
   ]
 })
 export class SharedModule { }

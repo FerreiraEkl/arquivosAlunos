@@ -8,42 +8,42 @@ export class CadastrarService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly rotaPadrao = 'api/cadastros';
+  private readonly rotaPadrao = 'api/cadastrar';
 
-  async save(formCadastro: any): Promise<any> {
+  async save(cadastrar: any): Promise<any> {
 
-    window.localStorage.setItem('cadastroCache', JSON.stringify(formCadastro))
+    window.localStorage.setItem('logCaDASTRAR', JSON.stringify(cadastrar))
 
     let fullFormData: FormData = new FormData();
-    for (const key of Object.keys(formCadastro)) {
-      const value = formCadastro[key];
+    for (const key of Object.keys(cadastrar)) {
+      const value = cadastrar[key];
       fullFormData.append(key, value);
     }
 
     // LOCALHOST
-    window.localStorage.setItem('cadastroCache', JSON.stringify(formCadastro))
+    window.localStorage.setItem('logCaDASTRAR', JSON.stringify(cadastrar))
 
     // API
-    /*await this.http.post<any>(`${this.rotaPadrao}`, fullFormData).toPromise().then((result: any) => {
+    await this.http.post<any>(`${this.rotaPadrao}`, fullFormData).toPromise().then((result: any) => {
       return result
     }).catch((err: any) => {
       console.log(err);
       return null
-    });*/
+    });
   }
 
-  async read(id: number): Promise<any> {
+  async read(id: number): Promise<{ nome: string; foto: File; } | null> {
     // LOCALHOST
-    let dadosAntigos = window.localStorage.getItem('cadastroCache')
+    let dadosAntigos = window.localStorage.getItem('logCaDASTRAR')
     if (dadosAntigos)
       return JSON.parse(dadosAntigos)
     return null
 
     // API
-    /*return await this.http.get<any>(`${this.rotaPadrao}/${id}`).toPromise().then(request => {
+    return await this.http.get<any>(`${this.rotaPadrao}/${id}`).toPromise().then(request => {
       return request;
     }).catch(() => {
       return null;
-    });*/
+    });
   }
 }

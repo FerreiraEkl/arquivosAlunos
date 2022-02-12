@@ -1,0 +1,25 @@
+.card.horizontal {
+    padding: 2rem;
+}
+
+.card-stacked {
+    color: white;
+}
+
+.card-image img {
+    width: 250px;
+    margin: auto;
+}
+
+.card.horizontal .card-image {
+    align-self: center;
+}
+
+.submit-row {
+    position: absolute!important;
+    bottom: 0px!important;
+}
+
+.input-field .material-icons {
+    color: indigo;
+}

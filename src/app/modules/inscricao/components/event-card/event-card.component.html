@@ -1,0 +1,17 @@
+<mat-card class="mat-elevation-z8" [routerLink]="'/inscricao/'+ url " style="cursor: pointer;">
+    <div class="row mb-0">
+        <div class="col">
+            <img src="/assets/images/{{image}}" alt="" class="event-image">
+        </div>
+        <div class="col" style="margin-top: 5%;">
+            <h2>
+                {{name}}
+            </h2>
+        </div>
+        <div class="col right"  style="margin-top: 5%;">
+            <a mat-flat-button color="primary">
+               Selecionar
+            </a>
+        </div>
+    </div>
+</mat-card>
