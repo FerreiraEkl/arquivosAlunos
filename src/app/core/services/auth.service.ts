@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { UserService } from './user.service';
 
 export interface IUser {
@@ -13,7 +14,7 @@ interface AuthRequest {
   password: string;
 }
 
-const DEFAULT_URL = `${'url do servidor'}/auth`
+const DEFAULT_URL = `${environment.api_url}/auth`
 
 @Injectable()
 export class AuthService {
@@ -56,24 +57,34 @@ export class AuthService {
    * @returns 
    */
   async login(data: AuthRequest): Promise<boolean> {
-    if (data.login === 'admin' && data.password === 'admin') {
-      this.userService.setData({
-        userLogin: 'admin',
-        userName: 'Admin'
-      })
-      return true
-    }
-    return false;
-
-    /**
-     * As linhas abaixo descrevem como se utilizaria a integração com o servidor
-     */
     try {
-      const token = await this.http.post<string>(`${DEFAULT_URL}/login`, { 'login': data.login, 'password': data.password }).toPromise()
-      window.localStorage.setItem('token', token);
+      // IMPORTANTE CONVERTER AS SOLICITAÇÕES PARA PHP EM FORM DATA //
+      const formData = new FormData();
+
+      Object.keys(data).forEach(key => {
+        formData.append(key, data[key]);
+      });
+
+      // POSSIVEL INFORMAR O FORMATO DE RETORNO NO LUGAR DO ANY
+      const response = await this.http.post<any>(`${DEFAULT_URL}`, formData).toPromise()
+
+
+      // A LISTA DE PERMISSÕES DEVE VIR DO BACKEND
+      const permissions = ['CHAMADO_CREATE'];
+
+      if (response.data.us_nome === 'alisson') {
+        permissions.push('SERVICO_READ')
+      }
+
+      this.userService.setData({
+        userLogin: response.data.us_nome,
+        userName: response.data.us_nome,
+      }, permissions)
+      
       return true
     }
-    catch {
+    catch (e) {
+      console.log(e);
       return false;
     }
   }

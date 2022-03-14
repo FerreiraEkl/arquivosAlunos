@@ -23,30 +23,37 @@ import { Inscricao20Component } from './pages/inscricao20/inscricao20.component'
 import { Inscricao21Component } from './pages/inscricao21/inscricao21.component';
 import { Inscricao22Component } from './pages/inscricao22/inscricao22.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { ChamadosGuard } from './guards/chamados.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'chamado1', component: InscricaoComponent, canActivate: [AuthGuard] },
-  { path: 'chamado2', component: Inscricao2Component, canActivate: [AuthGuard] },
-  { path: 'chamado3', component: Inscricao3Component },
-  { path: 'chamado4', component: Inscricao4Component },
-  { path: 'chamado5', component: Inscricao5Component },
-  { path: 'chamado6', component: Inscricao6Component },
-  { path: 'chamado7', component: Inscricao7Component },
-  { path: 'chamado8', component: Inscricao8Component },
-  { path: 'chamado9', component: Inscricao9Component },
-  { path: 'chamado10', component: Inscricao10Component },
-  { path: 'chamado11', component: Inscricao11Component },
-  { path: 'chamado12', component: Inscricao12Component },
-  { path: 'chamado13', component: Inscricao13Component },
-  { path: 'chamado14', component: Inscricao14Component },
-  { path: 'chamado16', component: Inscricao16Component },
-  { path: 'chamado17', component: Inscricao17Component },
-  { path: 'chamado18', component: Inscricao18Component },
-  { path: 'chamado19', component: Inscricao19Component },
-  { path: 'chamado20', component: Inscricao20Component },
-  { path: 'chamado21', component: Inscricao21Component },
-  { path: 'chamado22', component: Inscricao22Component },
+  {
+    path:'',
+    children:[
+      { path: '', component: HomeComponent },
+      { path: 'chamado1', component: InscricaoComponent, canActivate: [AuthGuard] },
+      { path: 'chamado2', component: Inscricao2Component, canActivate: [AuthGuard] },
+      { path: 'chamado3', component: Inscricao3Component },
+      { path: 'chamado4', component: Inscricao4Component },
+      { path: 'chamado5', component: Inscricao5Component },
+      { path: 'chamado6', component: Inscricao6Component },
+      { path: 'chamado7', component: Inscricao7Component },
+      { path: 'chamado8', component: Inscricao8Component },
+      { path: 'chamado9', component: Inscricao9Component },
+      { path: 'chamado10', component: Inscricao10Component },
+      { path: 'chamado11', component: Inscricao11Component },
+      { path: 'chamado12', component: Inscricao12Component },
+      { path: 'chamado13', component: Inscricao13Component },
+      { path: 'chamado14', component: Inscricao14Component },
+      { path: 'chamado16', component: Inscricao16Component },
+      { path: 'chamado17', component: Inscricao17Component },
+      { path: 'chamado18', component: Inscricao18Component },
+      { path: 'chamado19', component: Inscricao19Component },
+      { path: 'chamado20', component: Inscricao20Component },
+      { path: 'chamado21', component: Inscricao21Component },
+      { path: 'chamado22', component: Inscricao22Component }
+    ],
+    canActivate:[ChamadosGuard]
+  }  
 ];
 
 @NgModule({

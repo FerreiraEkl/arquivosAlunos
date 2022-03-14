@@ -6,26 +6,62 @@
                 <h1>
                     ABRIR CHAMADO
                 </h1>
-                <p>  Para abrir um chamado informe seu número de matricula,e o local do chamado,faça uma discrição do chamado e depois click em Abrir chamado.
+                <p>  Para abrir um chamado informe o local do chamado,faça uma discrição do chamado e depois click em Abrir chamado.
                 </p>
                 <h3>
-                  PROBLEMA DE Estação de trabalho
+                  PROBLEMA DE ESTAÇÃO DE TRABALHO
                 </h3>
-                <p>
-                    Problemas com cabos de rede,dns,etc.
-                   
-                </p>
+                <h2>
+                  Se o computador não está ligando :
+                </h2>
                 
-                <h3>
-                    POSSIVEIS CAUSAS
-                  </h3>
-            <p>Cabo de rede esta desconectado</p>
+            <p>Verificar cabos de energia</p>
                 <p class="col s12">
                     <label class="right">
                         <input formControlName="termos" type="checkbox" />
-                        <span>Verfifiquei todas as possiveis causa e soluções</span>
+                        <span>Verfifiquei todas as possiveis causa</span>
                     </label>
                 </p>
+
+                <p>Verificar rede elétrica local</p>
+                <p class="col s12">
+                    <label class="right">
+                        <input formControlName="termos" type="checkbox" />
+                        <span>Verfifiquei todas as possiveis causa</span>
+                    </label>
+                </p>
+
+                <p>Verificar se o cabo de vídeo está ligado corretamente ao monitor</p>
+                <p class="col s12">
+                    <label class="right">
+                        <input formControlName="termos" type="checkbox" />
+                        <span>Verfifiquei todas as possiveis causa</span>
+                    </label>
+                </p>
+
+                <h2>
+                    Se o computador está ligando, porém não inicia o sistema Operacional:
+                  </h2>
+                  
+              <p>Remover Dispositovos USB como pendrive e HD externo e reiniciar o  PC</p>
+                  <p class="col s12">
+                      <label class="right">
+                          <input formControlName="termos" type="checkbox" />
+                          <span>Verfifiquei todas as possiveis causa</span>
+                      </label>
+                  </p>
+  
+                  <p>Verificar se o cabo de vídeo do monitor está conectado corretamente</p>
+                  <p class="col s12">
+                      <label class="right">
+                          <input formControlName="termos" type="checkbox" />
+                          <span>Verfifiquei todas as possiveis causa</span>
+                      </label>
+                  </p>
+  
+                  
+
+
             </div>
             <div class="row mb-0">
                 <div class="col s12 m-0 p-0">
@@ -48,7 +84,7 @@
                     </div>
                     <mat-form-field appearance="fill" class="col s8 m9">
                         <mat-label>Descrição</mat-label>
-                        <input matInput placeholder="Digite a descrição do problema" formControlName="descrição">
+                        <input matInput placeholder="Digite a descrição do problema" formControlName="descricao">
                         <mat-error>Descrição é<strong>obrigatório</strong></mat-error>
                     </mat-form-field>
                 </div>

@@ -1,0 +1,149 @@
+
+
+<div class="row mt-5">
+    <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+        <form class="p-2" [formGroup]="inscriForm">
+            <div class="row">
+                <h1>
+                    Alterar cliente de departamento
+                </h1>
+                
+            </div>
+        
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>Identificação do equipamento (Patrimonio ou (N/S)):</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <input matInput placeholder="Digite a identificação do equipamento" formControlName="Identificação"[mask]= "mask2">
+                        <mat-error>Identificação é <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Descrição:</mat-label>
+                    </div>
+                </div>
+
+                <label for="Descrição">Descrição do equipamento</label>
+                <textarea id="Descrição" name="Descrição"
+                              rows="20" cols="100">
+    
+                    </textarea>
+            
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Responsável pelo Equipamento:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Responsável</mat-label>
+                        <input matInput placeholder="Digite o Nome do Responsável" formControlName="Responsável">
+                        <mat-error>Responsável é <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Secretaria:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Secretaria</mat-label>
+                        <input matInput placeholder="secretaria do Responsável" formControlName="Secretaria">
+                        <mat-error>Secretaria é <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Departamento:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Departamento</mat-label>
+                        <input matInput placeholder="Departamento do Responsável" formControlName="Departamento">
+                        <mat-error>Departamento é <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Telefone:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Telefone</mat-label>
+                        <input matInput placeholder="" formControlName="telefone"
+                            [mask]="phoneMask">
+                        <mat-icon matSuffix>phone</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Data de Entrada:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Data de Entrada</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="datadaentrada">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error>Data de Entrada <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Procedimento a ser executado:</mat-label>
+                    </div>
+                </div>
+
+                <textarea id="Procedimeto" name="Procedimento"
+                              rows="20" cols="100">
+    
+                    </textarea>
+                    <div class="col s12 m-0 p-0">
+                        <div class="col s4 m3 pt-4">
+                            <mat-label>Prazo para termino:</mat-label>
+                        </div>
+                    </div>
+    
+                    <textarea id="Prazo" name="Prazo"
+                                  rows="20" cols="100">
+        
+                        </textarea>
+                        <div class="col s12 m-0 p-0">
+                            <div class="col s4 m3 pt-4">
+                                <mat-label>Observações importantes:</mat-label>
+                            </div>
+                        </div>
+        
+                        <textarea id="Observação" name="Observação"
+                                      rows="20" cols="100">
+            
+                            </textarea>
+                            <div class="col s12 m-0 p-0">
+                                <div class="col s4 m3 pt-4">
+                                    <h3>Técnico:</h3>
+                                </div>
+                                <mat-form-field appearance="fill" class="col s8 m9">
+                                    <mat-label>Técnico</mat-label>
+                                    <mat-select formControlName="orientacaosexual">
+                                        <mat-option value="Alisson">Alisson Lopes</mat-option>
+                                        <mat-option value="Antonio">Antônio Carlos</mat-option>
+                                        <mat-option value="carlos">Carlos Gabriel Alves</mat-option>
+                                        <mat-option value="Diovani">Diovani Bonfante</mat-option>
+                                        <mat-option value="Jose">Jose Mauro</mat-option>
+                                        <mat-option value="Mirna">Mirna Esber</mat-option>
+                                        <mat-option value="Nikolas">Nikolas Gian de Souza</mat-option>
+                                        <mat-option value="Selma">Selma Aparecida</mat-option>
+                                        <mat-option value="Renaldo">Renaldo de lima</mat-option>
+
+                                    </mat-select>
+                                    <mat-error>Sexo <strong>obrigatório</strong></mat-error>
+                                </mat-form-field>
+                            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button mat-flat-button color="primary" class="right" type="submit">
+                       Abrir
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

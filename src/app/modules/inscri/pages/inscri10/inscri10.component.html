@@ -1,0 +1,123 @@
+
+
+<div class="row mt-5">
+    <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+        <form class="p-2" [formGroup]="inscriForm">
+            <div class="row">
+                <h1>
+                    Incluir Cliente
+                </h1>
+            </div>
+            <div class="row mb-0">
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>departamento</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-select formControlName="departamento">
+                            <mat-option value="Comunicação">Secretária municipal de comunicação social</mat-option>
+                            <mat-option value="Cultura">Secretária municipal de comunicação e turismo</mat-option>
+                            <mat-option value="Educação">Secretaria municipal de educação</mat-option>
+                            <mat-option value="Esporte">Secretaria municipal de esporte e lazer</mat-option>
+                        </mat-select>
+                        <mat-error>Encontrar Departamento  é <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col s12 m-0 p-0">
+                <div class="col s4 m3 pt-4">
+                    <h3>Matricula</h3>
+                </div>
+                <mat-form-field appearance="fill" class="col s8 m9">
+                    <input matInput placeholder="Digite a matricula" formControlName="cpf" [mask]="mask">
+                    <mat-error>Matricula é <strong>obrigatório</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col s12 m-0 p-0">
+                <div class="col s4 m3 pt-4">
+                    <mat-label>Nome:</mat-label>
+                </div>
+                <mat-form-field appearance="fill" class="col s8 m9">
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Digite o nome" formControlName="Nome">
+                    <mat-error>Nome é<strong>obrigatório</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col s12 m-0 p-0">
+                <div class="col s4 m3 pt-4">
+                    <mat-label>Cargo:</mat-label>
+                </div>
+                <mat-form-field appearance="fill" class="col s8 m9">
+                    <mat-label>Cargo</mat-label>
+                    <input matInput placeholder="Digite o cargo" formControlName="Nome">
+                    <mat-error>Cargo é<strong>obrigatório</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row mb-0">
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>Sexo:</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Sexo</mat-label>
+                        <mat-select formControlName="orientacaosexual">
+                            <mat-option value="masc">Masculino</mat-option>
+                            <mat-option value="fem">Feminino</mat-option>
+                            <mat-option value="neutro">Neutro</mat-option>
+                        </mat-select>
+                        <mat-error>Sexo <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>E-mail:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput placeholder="Digite o E-mail" formControlName="E-mail">
+                        <mat-error>E-mail é<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Nome da Máquina:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Nome da Máquina</mat-label>
+                        <input matInput placeholder="Digite o nome" formControlName="Nomedamaquina">
+                        <mat-error>Nome da Máquina é<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>Ip da Máquina</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <input matInput placeholder="Digite o IP da máquina" formControlName="Ip" [mask]="mask1">
+                        <mat-error>Ip é Máquina<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Usuario de Rede:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Usuário de Rede</mat-label>
+                        <input matInput placeholder="Digite o Usuário de rede" formControlName="UsuáriodeRede">
+                        <mat-error>Usuário de Rede é<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                   
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button mat-flat-button  color="primary" class="right" type="submit">
+                        <mat-icon matSuffix></mat-icon>
+                        Incluir cliente
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

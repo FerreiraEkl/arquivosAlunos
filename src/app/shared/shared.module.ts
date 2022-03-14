@@ -20,6 +20,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { NavbarService } from './services/navbar.service';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NavbarService } from './services/navbar.service';
     MatButtonModule,
     MatCheckboxModule,
     MatButtonToggleModule,
-    RouterModule
+    RouterModule,
+    NgxPermissionsModule
   ],
   exports: [
     MatIconModule,

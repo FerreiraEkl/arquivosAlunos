@@ -28,6 +28,8 @@ import { Inscricao19Component } from './pages/inscricao19/inscricao19.component'
 import { Inscricao20Component } from './pages/inscricao20/inscricao20.component';
 import { Inscricao21Component } from './pages/inscricao21/inscricao21.component';
 import { Inscricao22Component } from './pages/inscricao22/inscricao22.component';
+import { ChamadosGuard } from './guards/chamados.guard';
+import { ChamadosService } from 'src/app/shared/services/chamados.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,7 @@ import { Inscricao22Component } from './pages/inscricao22/inscricao22.component'
     Inscricao20Component,
     Inscricao21Component,
     Inscricao22Component,
-    
+
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,12 @@ import { Inscricao22Component } from './pages/inscricao22/inscricao22.component'
     ReactiveFormsModule,
     FormsModule,
     NgxMaskModule.forRoot(),
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    ChamadosGuard,
+    ChamadosService
   ]
 })
 export class InscricaoModule { }

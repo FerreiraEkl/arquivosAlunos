@@ -19,14 +19,52 @@
                 <h3>
                     POSSIVEIS CAUSAS
                   </h3>
-            <p>Cabo de rede esta desconectado</p>
+            <p>Verificar se o Cabo de rede esta conectado ao computador</p>
                 <p class="col s12">
                     <label class="right">
                         <input formControlName="termos" type="checkbox" />
-                        <span>Verfifiquei todas as possiveis causa e soluções</span>
+                        <span>Verfifiquei todas as possiveis causas</span>
                     </label>
                 </p>
+                <p>Verificar se os equipamentos de rede(switch,roteador)estão ligados</p>
+                <p class="col s12">
+                    <label class="right">
+                        <input formControlName="termos" type="checkbox" />
+                        <span>Verfifiquei todas as possiveis causas</span>
+                    </label>
+                </p>
+                <p>Informar se o problema é para acessar todos os sites ou apenas alguns sites especificos</p>
+                <p class="col s12">
+                    <label class="right">
+                        <input formControlName="termos" type="checkbox" />
+                        <span>Verfifiquei todas as possiveis causas</span>
+                    </label>
+                </p>
+                <p>Testar em outros navegadores(Google Chrome, Firefox,...)</p>
+                <p class="col s12">
+                    <label class="right">
+                        <input formControlName="termos" type="checkbox" />
+                        <span>Verfifiquei todas as possiveis causas</span>
+                    </label>
+                </p>
+          
+
+
+
+
+
+
+
             </div>
+
+
+
+
+
+
+
+
+
             <div class="row mb-0">
                 
                 <div class="col s12 m-0 p-0">
@@ -47,17 +85,19 @@
                     <div class="col s4 m3 pt-4">
                         <mat-label>Descrição:</mat-label>
                     </div>
-                    <mat-form-field appearance="fill" class="col s8 m9">
-                        <mat-label>Descrição</mat-label>
-                        <input matInput placeholder="Digite a descrição do problema" formControlName="descrição">
-                        <mat-error>Descrição é<strong>obrigatório</strong></mat-error>
-                    </mat-form-field>
                 </div>
+                </div>
+                <label for="Descrição">faça a descrição do seu problema:</label>
+
+                    <textarea id="Descrição" name="Descrição"
+                              rows="20" cols="30">
+                    
+                    </textarea>
     
-            </div>
+           
             <div class="row">
                 <div class="col s12">
-                    <button mat-flat-button color="primary" class="right" type="submit">
+                    <button mat-flat-button [routerLink]="'/inscricao/chamado4'" color="primary" class="right" type="submit">
                         <mat-icon matSuffix>send</mat-icon>
                        Abrir chamado
                     </button>

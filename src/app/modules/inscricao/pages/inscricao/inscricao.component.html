@@ -1,32 +1,32 @@
-
 <div class="row mt-5">
     <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
-        <form class="p-2" [formGroup]="inscricaoForm">
+        <form class="p-2" [formGroup]="inscricaoForm" (submit)="onSubmit()">
             <div class="row">
                 <h1>
                     ABRIR CHAMADO
                 </h1>
-                <p>  Para abrir um chamado informe seu número de matricula,e o local do chamado,faça uma discrição do chamado e depois click em Abrir chamado.
+                <p> Para abrir um chamado informe seu número de matricula,e o local do chamado,faça uma discrição do
+                    chamado e depois click em Abrir chamado.
                 </p>
                 <h3>
-                  PROBLEMA DE REDE
+                    PROBLEMA DE REDE
                 </h3>
                 <p>
                     Problemas com cabos de rede,dns,etc.
                 </p>
-                
+
                 <h3>
                     POSSIVEIS CAUSAS
-                  </h3>
-            <h3>Cabo de rede esta desconectado Solução:Conectar cabo de rede 
-            </h3>
+                </h3>
+                <h3>Cabo de rede esta desconectado Solução:Conectar cabo de rede
+                </h3>
                 <p class="col s12">
                     <label class="right">
                         <input formControlName="termos" type="checkbox" />
                         <span>Verfifiquei todas as possiveis causa e soluções</span>
                     </label>
                 </p>
-                <h3>Switch de rede desligado  Solução:Ligar Switch
+                <h3>Switch de rede desligado Solução:Ligar Switch
                 </h3>
                 <p class="col s12">
                     <label class="right">
@@ -58,28 +58,21 @@
                     </div>
                     <mat-form-field appearance="fill" class="col s8 m9">
                         <mat-label>Descrição</mat-label>
-                        <input matInput placeholder="Digite a descrição do problema" formControlName="descrição">
+                        <input matInput placeholder="Digite a descrição do problema" formControlName="descricao">
                         <mat-error>Descrição é<strong>obrigatório</strong></mat-error>
                     </mat-form-field>
                 </div>
             </div>
-           
-                    <label for="Descrição">faça a descrição do seu problema:</label>
 
-                    <textarea id="Descrição" name="Descrição"
-                              rows="20" cols="30">
-                    
-                    </textarea>
+            <label for="Descrição">faça a descrição do seu problema:</label>
 
-            
-
-
+            <textarea id="Descrição" name="Descrição" rows="20" cols="30"> </textarea>
 
             <div class="row">
                 <div class="col s12">
                     <button mat-flat-button color="primary" class="right" type="submit">
                         <mat-icon matSuffix>send</mat-icon>
-                       Abrir chamado
+                        Abrir chamado
                     </button>
                 </div>
             </div>

@@ -16,9 +16,7 @@ export class NavbarComponent implements OnInit {
   constructor(private userService: UserService, private navbar: NavbarService) { }
 
   ngOnInit(): void {
-    this.userService.user.subscribe(user => {
-      this.user = user;
-    })
+    this.userService.user.subscribe(user => { this.user = user })
 
     this.navbar.options.subscribe(opts => {
       this.navbarItens = opts;
