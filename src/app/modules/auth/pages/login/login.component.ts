@@ -6,41 +6,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   public loading = false;
   public loginForm!: FormGroup;
-  public authenticated = false;
-  public hide = true;
+  public hidePassword: boolean = true;
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       login: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
   async login() {
-    if (!this.loginForm.valid) { return }
-    
-    this.loading = true;
-    const authorized = await this.authService.login(this.loginForm.value)
+    if (!this.loginForm.valid) return;
 
-    if (authorized) {
-      this.authenticated = true;
+    try {
+      this.loading = true;
+      await this.authService.login(this.loginForm.value);
       this.router.navigate(['']);
-      return
+    } catch {
+      alert('Wrong login or password.');
+    } finally {
+      this.loading = false;
     }
-
-    alert('Wrong login or password.')
-    this.loading = false;
   }
 }

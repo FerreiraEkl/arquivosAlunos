@@ -1,25 +1,29 @@
 .card.horizontal {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .card-stacked {
-    color: white;
+  color: white;
 }
 
 .card-image img {
-    width: 250px;
-    margin: auto;
+  width: 250px;
+  margin: auto;
 }
 
 .card.horizontal .card-image {
-    align-self: center;
+  align-self: center;
 }
 
 .submit-row {
-    position: absolute!important;
-    bottom: 0px!important;
+  position: absolute !important;
+  bottom: 0px !important;
 }
 
 .input-field .material-icons {
-    color: indigo;
+  color: indigo;
+}
+
+.container {
+  min-height: calc(100vh - 394px);
 }

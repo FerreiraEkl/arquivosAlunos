@@ -3,48 +3,46 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { UserService } from './user.service';
 
-export interface IUser {
-  id?: number,
-  userLogin: string;
-  userName: string;
+/** Interface do relacionamento usuário permissão */
+export interface IUserPermission {
+  userId: number;
+  permissionId: string;
 }
 
-interface AuthRequest {
+/** Interface de usuário */
+export interface IUser {
+  id?: number;
+  userLogin: string;
+  userName: string;
+  permissions: IUserPermission[];
+}
+
+/** Interface da solicitação de login */
+export interface IAuthRequest {
   login: string;
   password: string;
 }
 
-const DEFAULT_URL = `${environment.api_url}/auth`
+const DEFAULT_URL = `${environment.api_url}/auth`;
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private http: HttpClient,
-    private userService: UserService
-  ) { }
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   /**
    * Verifica se o usuário está autenticado.
-   * @returns 
+   * @returns
    */
   public async isLoggedIn(): Promise<boolean> {
-    /**
-     * Funcionando de forma local, mas por segurança deve verificar o token
-     * na api de serviço configurada conforme exemplo logo abaixo
-     */
-    const user = this.userService.userInstance;
-    if (!user) {
-      return false
-    }
-    return true
-
     /**
      * Exemplo de validação com utilização de api
      * O Token já está inserido no header da solicitação
      */
     try {
-      const authenticatedUser = await this.http.get<IUser>(`${DEFAULT_URL}/isLoggedIn`).toPromise()
-      this.userService.setData(authenticatedUser);
+      const authenticatedUser = await this.http
+        .get<any>(`${DEFAULT_URL}`)
+        .toPromise();
+      this.userService.setData(authenticatedUser.data);
       return true;
     } catch {
       return false;
@@ -53,45 +51,28 @@ export class AuthService {
 
   /**
    * Cria uma nova seção para o usuário
-   * @param data 
-   * @returns 
+   * @param data
+   * @returns
    */
-  async login(data: AuthRequest): Promise<boolean> {
-    try {
-      // IMPORTANTE CONVERTER AS SOLICITAÇÕES PARA PHP EM FORM DATA //
-      const formData = new FormData();
+  async login(data: IAuthRequest) {
+    // IMPORTANTE CONVERTER AS SOLICITAÇÕES PARA PHP EM FORM DATA //
+    const formData = new FormData();
+    Object.keys(data).forEach((key) => {
+      formData.append(key, data[key]);
+    });
 
-      Object.keys(data).forEach(key => {
-        formData.append(key, data[key]);
-      });
+    const autorization = await this.http
+      .post<any>(`${DEFAULT_URL}`, formData)
+      .toPromise();
 
-      // POSSIVEL INFORMAR O FORMATO DE RETORNO NO LUGAR DO ANY
-      const response = await this.http.post<any>(`${DEFAULT_URL}`, formData).toPromise()
+    localStorage.setItem('token', autorization.data);
 
-
-      // A LISTA DE PERMISSÕES DEVE VIR DO BACKEND
-      const permissions = ['CHAMADO_CREATE'];
-
-      if (response.data.us_nome === 'alisson') {
-        permissions.push('SERVICO_READ')
-      }
-
-      this.userService.setData({
-        userLogin: response.data.us_nome,
-        userName: response.data.us_nome,
-      }, permissions)
-      
-      return true
-    }
-    catch (e) {
-      console.log(e);
-      return false;
-    }
+    await this.isLoggedIn();
   }
 
   /**
    * Encerra a sessão do usuário
-   * @returns 
+   * @returns
    */
   public async logout(): Promise<boolean> {
     window.localStorage.clear();
@@ -99,5 +80,3 @@ export class AuthService {
     return true;
   }
 }
-
-

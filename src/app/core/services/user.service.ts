@@ -8,28 +8,45 @@ import { NgxPermissionsService } from 'ngx-permissions';
 export class UserService {
   private _user: BehaviorSubject<IUser>;
 
-  constructor(private http: HttpClient, private permissions: NgxPermissionsService) {
+  constructor(
+    private http: HttpClient,
+    private permissions: NgxPermissionsService
+  ) {
     this._user = new BehaviorSubject<IUser>(null);
   }
 
-  get user(): Observable<IUser> { return this._user.asObservable() }
+  get user(): Observable<IUser> {
+    return this._user.asObservable();
+  }
 
-  get userInstance(): IUser { return this._user.value }
+  get userInstance(): IUser {
+    return this._user.value;
+  }
 
   /**
-  * Atribuir informações do usuário autenticado
-  * @param user Usuário 
-  */
-  setData(user: IUser, permissions: string[] = []) {
-    this.permissions.loadPermissions(permissions)
-    this._user.next(user)
+   * Atribuir informações do usuário autenticado
+   * @param user Usuário
+   */
+  setData(user: IUser) {
+    const permissions: string[] = [];
+
+    if (Array.isArray(user.permissions)) {
+      user.permissions.map((p) => {
+        permissions.push(p.permissionId);
+      });
+    } else {
+      permissions.push((user.permissions as any).permissionId);
+    }
+    this.permissions.loadPermissions(permissions);
+    delete user.permissions;
+    this._user.next(user);
   }
 
   /**
    * Remover as informações do usuário
    */
   clear() {
-    this.permissions.loadPermissions([])
-    this._user.next(null)
+    this.permissions.loadPermissions([]);
+    this._user.next(null);
   }
 }
