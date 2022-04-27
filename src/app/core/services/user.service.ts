@@ -37,6 +37,7 @@ export class UserService {
     } else {
       permissions.push((user.permissions as any).permissionId);
     }
+    
     this.permissions.loadPermissions(permissions);
     delete user.permissions;
     this._user.next(user);
