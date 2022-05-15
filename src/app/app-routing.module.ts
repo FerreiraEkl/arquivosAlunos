@@ -4,30 +4,55 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'cadastro',
-    loadChildren: () => import('./modules/cadastro/cadastro.module').then(m => m.CadastroModule)
+    loadChildren: () =>
+      import('./modules/cadastro/cadastro.module').then(
+        (m) => m.CadastroModule
+      ),
   },
   {
-    path: 'inscricao', loadChildren: () => import('./modules/inscricao/inscricao.module').then(m => m.InscricaoModule)
+    path: 'chamados',
+    loadChildren: () =>
+      import('./modules/chamados/chamados.module').then(
+        (m) => m.ChamadosModule
+      ),
   },
   {
-    path: 'inscri', loadChildren: () => import('./modules/inscri/inscri.module').then(m => m.InscriModule)
+    path: 'servicos',
+    loadChildren: () =>
+      import('./modules/servicos/servicos.module').then(
+        (m) => m.ServicosModule
+      ),
   },
+
   {
-    path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+    path: 'dispositivos',
+    loadChildren: () =>
+      import('./modules/dispositivos/dispositivos.module').then(
+        (m) => m.DispositivosModule
+      ),
   },
+
+  // ROTAS PADRÃO ========================
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+
   {
     path: '',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
   },
-  
+
   {
     path: '**',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

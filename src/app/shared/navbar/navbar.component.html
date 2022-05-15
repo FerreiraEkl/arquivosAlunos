@@ -17,17 +17,22 @@
 
   <mat-button-toggle *ngIf="!user" [routerLink]="'/auth'"
     >Entrar</mat-button-toggle
-  > 
+  >
   <mat-button-toggle
     *ngxPermissionsOnly="['CHAMADO_CREATE']"
-    [routerLink]="'/inscricao'"
+    [routerLink]="'/chamados'"
     >Abrir um chamado
   </mat-button-toggle>
 
   <mat-button-toggle
     *ngxPermissionsOnly="['SERVICO_READ']"
-    [routerLink]="'/inscri'"
+    [routerLink]="'/servicos'"
     >Escolher um serviço
+  </mat-button-toggle>
+  <mat-button-toggle
+    *ngxPermissionsOnly="['DISPOSITIVOS_READ']"
+    [routerLink]="'/dispositivos'"
+    >Dispositivos
   </mat-button-toggle>
 
   <mat-button-toggle *ngIf="user" (click)="logout()">Sair</mat-button-toggle>

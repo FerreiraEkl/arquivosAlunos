@@ -1,0 +1,81 @@
+<div class="row mt-5">
+  <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+    <form class="p-2" [formGroup]="filterForm">
+      <div class="row">
+        <h1>Listar chamados abertos</h1>
+      </div>
+      <div class="row mb-0">
+        <div class="col s12 m-0 p-0">
+          <div class="col s4 m3 pt-4">
+            <h3>Filtrar</h3>
+          </div>
+          <mat-form-field appearance="fill" class="col s8 m9">
+            <mat-select formControlName="tipoChamado">
+              <mat-option value="Todos">Todos</mat-option>
+              <mat-option value="Interno">Interno</mat-option>
+              <mat-option value="Externo">Externo</mat-option>
+              <mat-option value="Sensa">Sensa</mat-option>
+              <mat-option value="Semed">Semed</mat-option>
+            </mat-select>
+            <mat-error>Filtrar é <strong>obrigatório</strong></mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col s12">
+          <button mat-flat-button color="primary" class="right" type="submit">
+            <mat-icon matSuffix>send</mat-icon>
+            Listar
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+
+  <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+    <table>
+      <thead>
+        <th>Número</th>
+        <th>Cliente</th>
+        <th>Assunto</th>
+        <th>Descrição</th>
+        <th>Status</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let chamado of chamados">
+          <td>
+            {{ chamado.id }}
+          </td>
+          <td>
+            {{ chamado.usuarioId }}
+          </td>
+          <td>
+            {{ chamado.chamadoAssunto }}
+          </td>
+          <td>
+            {{ chamado.chamadoDescricao }}
+          </td>
+          <td>
+            {{ chamado.chamadoStatus }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row pt-2">
+      <div class="col s6">
+        <div class="col button" *ngFor="let page of pages">
+          <button
+            mat-flat-button
+            color="primary"
+            class="right"
+            type="submit"
+            (click)="pagination = page"
+          >
+            {{ page }}
+          </button>
+        </div>
+      </div>
+      <div class="col s6"></div>
+    </div>
+  </mat-card>
+</div>

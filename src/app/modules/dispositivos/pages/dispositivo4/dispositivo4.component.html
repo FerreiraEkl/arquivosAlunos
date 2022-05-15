@@ -1,0 +1,127 @@
+<div class="row mt-5">
+  <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+    <form class="p-2" [formGroup]="dispositivosForm">
+      <div class="row">
+        <h1>Incluir Linha</h1>
+      </div>
+
+      <div class="col s12 m-0 p-0">
+        <div class="col s4 m3 pt-4">
+          <h3>Número</h3>
+        </div>
+        <mat-form-field appearance="fill" class="col s8 m9">
+          <input
+            matInput
+            placeholder="Número"
+            formControlName="numero"
+            [mask]="mask"
+          />
+          <mat-error>Número<strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col s12 m-0 p-0">
+        <div class="col s4 m3 pt-4">
+          <h3>Linha</h3>
+        </div>
+        <mat-form-field appearance="fill" class="col s8 m9">
+          <input
+            matInput
+            placeholder="Linha"
+            formControlName="linha"
+            [mask]="mask1"
+          />
+          <mat-error>Número é <strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col s12 m-0 p-0">
+        <div class="col s4 m3 pt-4">
+          <h3>DDD</h3>
+        </div>
+        <mat-form-field appearance="fill" class="col s8 m9">
+          <input
+            matInput
+            placeholder="DDD"
+            formControlName="ddd"
+            [mask]="mask3"
+          />
+          <mat-error>DDD é<strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col s12 m-0 p-0">
+        <div class="col s4 m3 pt-4">
+          <mat-label>Familia:</mat-label>
+        </div>
+        <mat-form-field appearance="fill" class="col s8 m9">
+          <mat-label>Familia</mat-label>
+          <input matInput placeholder="Familia" formControlName="Familia" />
+          <mat-error>Familia é<strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col s12 m-0 p-0">
+        <div class="col s4 m3 pt-4">
+          <mat-label>Plano:</mat-label>
+        </div>
+        <mat-form-field appearance="fill" class="col s8 m9">
+          <mat-label>Plano</mat-label>
+          <input matInput placeholder="Plano" formControlName="Plano" />
+          <mat-error>Plano é<strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row mb-0">
+        <div class="col s12 m-0 p-0">
+          <div class="col s4 m3 pt-4">
+            <h3>Status</h3>
+          </div>
+          <mat-form-field appearance="fill" class="col s8 m9">
+            <mat-select formControlName="Status">
+              <mat-option value="ativo">ATIVO</mat-option>
+              <mat-option value="disponivel">Disponivel</mat-option>
+            </mat-select>
+            <mat-error> é <strong>obrigatório</strong></mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row mb-0">
+        <div class="col s12 m-0 p-0">
+          <div class="col s4 m3 pt-4">
+            <mat-label>Nome</mat-label>
+          </div>
+          <mat-form-field appearance="fill" class="col s8 m9">
+            <mat-label>Nome</mat-label>
+            <input
+              matInput
+              placeholder="Digite o nome"
+              formControlName="Nome"
+            />
+            <mat-error>Nome é<strong>obrigatório</strong></mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col s12 m-0 p-0">
+          <div class="col s4 m3 pt-4">
+            <mat-label>Departamento</mat-label>
+          </div>
+          <mat-form-field appearance="fill" class="col s8 m9">
+            <mat-label>Departamento</mat-label>
+            <input
+              matInput
+              placeholder="Digite o Departamento"
+              formControlName="Departamento"
+            />
+            <mat-error>Departamento é<strong>obrigatório</strong></mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <button mat-flat-button color="primary" class="right" type="submit">
+            <mat-icon matSuffix></mat-icon>
+            Incluir linha
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

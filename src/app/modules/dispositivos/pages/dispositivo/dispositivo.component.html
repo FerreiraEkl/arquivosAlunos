@@ -1,0 +1,145 @@
+<div class="row mt-5">
+    <mat-card class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 p-3">
+        <form class="p-2" [formGroup]="dispositivosForm">
+            <div class="row">
+                <h1>
+                    Incluir Cautela
+                </h1>
+            </div>
+            
+            <div class="col s12 m-0 p-0">
+                <div class="col s4 m3 pt-4">
+                    <h3>Número da cautela</h3>
+                </div>
+                <mat-form-field appearance="fill" class="col s8 m9">
+                    <input matInput placeholder="Número da cautela" formControlName="numero" [mask]="mask">
+                    <mat-error>Número da cautela é <strong>obrigatório</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col s12 m-0 p-0">
+                <div class="col s4 m3 pt-4">
+                    <mat-label>Nome:</mat-label>
+                </div>
+                <mat-form-field appearance="fill" class="col s8 m9">
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Digite o nome" formControlName="Nome">
+                    <mat-error>Nome é<strong>obrigatório</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col s12 m-0 p-0">
+                <div class="col s4 m3 pt-4">
+                    <mat-label>Cargo:</mat-label>
+                </div>
+                <mat-form-field appearance="fill" class="col s8 m9">
+                    <mat-label>Cargo</mat-label>
+                    <input matInput placeholder="Digite o cargo" formControlName="Nome">
+                    <mat-error>Cargo é<strong>obrigatório</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row mb-0">
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>Secretaria</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-select formControlName="departamento">
+                            <mat-option value="Comunicação">Secretária Municipal de Comunicação Social</mat-option>
+                            <mat-option value="Cultura">Secretária Municipal de Comunicação e turismo</mat-option>
+                            <mat-option value="Educação">Secretaria Municipal de Educação</mat-option>
+                            <mat-option value="Esporte">Secretaria Municipal de Esporte e Lazer</mat-option>
+                            <mat-option value="Finanças">Secretaria Municipal de Finanças</mat-option>
+                            <mat-option value="Governo">Secretaria Municipal de Governo</mat-option>
+                            <mat-option value="Informática">Secretaria Municipal de Informática</mat-option>
+                            <mat-option value="MeioAmbiente">Secretaria Municipal de Meio Ambiente</mat-option>
+                            <mat-option value="Obras">Secretaria Municipal de Obras</mat-option>
+                            <mat-option value="Planejamento">Secretaria Municipal de Planejamento</mat-option>
+                            <mat-option value="Saúde">Secretaria Municipal de Saúde</mat-option>
+                            <mat-option value="Jurídico">Procuradoria Jurídica</mat-option>
+                            <mat-option value="DefesaSocial">Secretaria Municipal de Defesa Social</mat-option>
+                            <mat-option value="SMCGG">Secretaria Municipal de Coordenação Geral e Gestão</mat-option>
+                            <mat-option value="CONVE">Convênio com a PMI</mat-option>
+                            <mat-option value="Administração">Secretaria Municipal de Administração</mat-option>
+                            <mat-option value="Agricultura">Secretaria Municipal de Agricultura</mat-option>
+                            <mat-option value="Semas">Secretaria Municipal de Assistência Social</mat-option>
+                            <mat-option value="SEMICT">Secretaria Municipal de Ciência, Tecnologia, Indústria e Comércio</mat-option>
+                        </mat-select>
+                        <mat-error> Secretária  é <strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            
+
+
+
+            <div class="row mb-0">
+                
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>E-mail:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput placeholder="Digite o E-mail" formControlName="E-mail">
+                        <mat-error>E-mail é<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Marca:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Marca</mat-label>
+                        <input matInput placeholder="Digite a Marca" formControlName="Nomedamaquina">
+                        <mat-error>Nome da Marca é<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <mat-label>Modelo:</mat-label>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <mat-label>Modelo</mat-label>
+                        <input matInput placeholder="Digite o Modelo do aparelho" formControlName="UsuáriodeRede">
+                        <mat-error>Modelo é<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>IMEI</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <input matInput placeholder="Digite o IMEI do aparelho" formControlName="Ip" [mask]="mask1">
+                        <mat-error>IMEI<strong>obrigatório</strong></mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>número do chip</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <input matInput placeholder="Digite o Número do chip" formControlName="Ip" [mask]="mask2">
+                    </mat-form-field>
+                <div class="col s12 m-0 p-0">
+                    <div class="col s4 m3 pt-4">
+                        <h3>chip</h3>
+                    </div>
+                    <mat-form-field appearance="fill" class="col s8 m9">
+                        <input matInput placeholder="Digite o ICCID do chip" formControlName="Ip" [mask]="mask1">
+                    </mat-form-field>
+                </div>
+                
+                </div>
+
+                   
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button mat-flat-button  color="primary" class="right" type="submit">
+                        <mat-icon matSuffix></mat-icon>
+                        Incluir cautela
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>
